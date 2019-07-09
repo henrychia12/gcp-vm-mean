@@ -1,0 +1,5 @@
+# gcp sdk environment variables
+GCLOUD_CONFIG=$(gcloud config list --format json)
+GCLOUD_PROJECT=$(echo -n ${GCLOUD_CONFIG} | jq -r ".core.project")
+GCLOUD_REGION=$(echo -n ${GCLOUD_CONFIG} | jq -r ".compute.region")
+GCLOUD_ZONE=$(echo -n ${GCLOUD_CONFIG} | jq -r ".compute.zone")
