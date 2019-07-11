@@ -1,8 +1,8 @@
-resource "google_compute_instance" "api-db" {
-        name = "${var.name}-api-db"
+resource "google_compute_instance" "express" {
+        name = "${var.name}-express"
         machine_type = "${var.machine_type}"
         zone = "${var.zone}"
-        tags = ["${var.name}-api-db"]
+        tags = ["${var.name}-express"]
         boot_disk {
                 initialize_params {
                         image = "${var.image}"

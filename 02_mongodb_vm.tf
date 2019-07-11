@@ -1,8 +1,8 @@
-resource "google_compute_instance" "default" {
-	name = "${var.name}"
+resource "google_compute_instance" "mongodb" {
+	name = "${var.name}-mongodb"
 	machine_type = "${var.machine_type}"
 	zone = "${var.zone}"
-	tags = ["${var.name}"]
+	tags = ["${var.name}-mongodb"]
 	boot_disk {
 		initialize_params {
 			image = "${var.image}"
