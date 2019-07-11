@@ -13,7 +13,7 @@ sudo apt-get install nodejs -y
 sudo useradd --create-home meanadm
 sudo usermod --shell /bin/bash meanadm
 
-# briefly carries a task on user - meanadm to git clone backend repo
+# briefly carries a task on user - meanadm to git clone front & back end repo
 sudo su - meanadm -c "git clone -b Developer https://github.com/Nboaram/TeamAPoolProjectBackend.git && git clone -b Developer https://github.com/Nboaram/TeamAPoolProjectUI.git"
 
 # install npm dependencies as meanadm in front/back end repo
@@ -35,10 +35,3 @@ sudo cp ../angular.service /etc/systemd/system
 sudo systemctl daemon-reload
 sudo systemctl restart angular
 sudo systemctl restart mongodb
-
-# install angular
-# cd /home/meanadm/TeamAPoolProjectUI
-# yes | sudo npm install @angular/cli
-
-# deploy front end using angular
-# ng serve --host 0.0.0.0
