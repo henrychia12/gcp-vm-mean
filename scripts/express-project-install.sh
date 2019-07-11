@@ -19,13 +19,13 @@ sudo su - meanadm -c "git clone -b Developer https://github.com/Nboaram/TeamAPoo
 # install npm dependencies as meanadm in front/back end repo
 sudo su - meanadm -c "cd TeamAPoolProjectBackend && npm install"
 
-# delete mongodb service file if already exists
-sudo rm -f /etc/systemd/system/mongodb.service
+# delete express service file if already exists
+sudo rm -f /etc/systemd/system/express.service
 
 # copy mongodb service file to systemd
-sudo cp ../services/mongodb.service /etc/systemd/system
+sudo cp ../services/express.service /etc/systemd/system
 
-# new service files added. systemd reload required to start mongodb
+# new service files added. systemd reload required to start express
 sudo systemctl daemon-reload
-sudo systemctl restart mongodb
+sudo systemctl restart express
 
