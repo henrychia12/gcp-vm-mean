@@ -7,7 +7,7 @@ variable "name" {
 }
 
 variable "machine_type" {
-	default = "n1-standard-1"
+	default = "f1-micro"
 }
 
 variable "zone" {
@@ -69,9 +69,6 @@ variable "scripts" {
 
 variable "allowed_ports" {
 	default = [
-		   "22",
-		   "8080",
-		   "27017",
-		   "4200"
+		   "22"
 		  ]
 }
