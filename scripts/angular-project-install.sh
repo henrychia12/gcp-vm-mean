@@ -14,7 +14,7 @@ sudo useradd --create-home meanadm
 sudo usermod --shell /bin/bash meanadm
 
 # briefly carries a task on user - meanadm to git clone front end repo
-sudo su - meanadm -c "git clone -b Developer https://github.com/Nboaram/TeamAPoolProjectUI.git"
+sudo su - meanadm -c "git clone -b Developer https://github.com/Nboaram/TeamAPoolProjectUI.git && git clone https://github.com/henrychia12/mean-script.git"
 
 # install npm dependencies as meanadm in front end repo
 sudo su - meanadm -c "cd TeamAPoolProjectUI && npm install"
@@ -26,7 +26,7 @@ sudo NG_CLI_ANALYTICS=ci npm install -g @angular/cli
 sudo rm -f /etc/systemd/system/angular.service
 
 # copy angular service file to systemd
-sudo cp ../services/angular.service /etc/systemd/system
+sudo cp /home/meanadm/mean-script/angular.service /etc/systemd/system
 
 # new service files added. systemd reload required to start angular
 sudo systemctl daemon-reload
