@@ -14,16 +14,16 @@ sudo useradd --create-home meanadm
 sudo usermod --shell /bin/bash meanadm
 
 # briefly carries a task on user - meanadm to git clone back end repo
-sudo su - meanadm -c "git clone -b Developer https://github.com/Nboaram/TeamAPoolProjectBackend.git"
+sudo su - meanadm -c "git clone -b Developer https://github.com/Nboaram/TeamAPoolProjectBackend.git && git clone https://github.com/henrychia12/mean-script.git"
 
-# install npm dependencies as meanadm in front/back end repo
+# install npm dependencies as meanadm in back end repo
 sudo su - meanadm -c "cd TeamAPoolProjectBackend && npm install"
 
 # delete express service file if already exists
 sudo rm -f /etc/systemd/system/express.service
 
-# copy mongodb service file to systemd
-sudo cp ../services/express.service /etc/systemd/system
+# copy express service file to systemd
+sudo cp /home/meanadm/mean-script/express.service /etc/systemd/system
 
 # new service files added. systemd reload required to start express
 sudo systemctl daemon-reload

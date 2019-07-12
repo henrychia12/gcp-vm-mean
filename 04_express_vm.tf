@@ -27,6 +27,7 @@ resource "google_compute_instance" "express" {
 	provisioner "remote-exec" {
 		inline = [
 			"${var.update_packages[var.package_manager]}",
+			"${var.update_packages[var.package_manager]}",
 			"${var.install_packages[var.package_manager]} ${join(" ", var.packages)}"
 		]
 	}
