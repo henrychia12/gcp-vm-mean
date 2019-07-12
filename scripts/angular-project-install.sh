@@ -20,7 +20,7 @@ sudo su - meanadm -c "git clone -b Developer https://github.com/Nboaram/TeamAPoo
 sudo su - meanadm -c "cd TeamAPoolProjectUI && npm install"
 
 # installing angular globally
-yes | sudo npm -g install @angular/cli
+sudo NG_CLI_ANALYTICS=ci npm install -g @angular/cli
 
 # delete angular service file if already exists
 sudo rm -f /etc/systemd/system/angular.service
