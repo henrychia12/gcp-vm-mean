@@ -20,16 +20,18 @@ resource "google_compute_instance" "mongodb" {
 	connection {
 		type = "ssh"
 		user = "${var.ssh_user}"
-    host = "${google_compute_instance.default.network_interface.0.access_config.0.nat_ip}"
+        host = "${google_compute_instance.mongodb.network_interface.0.access_config.0.nat_ip}"
 		private_key = "${file("${var.private_key}")}"
 	}
+	
 	provisioner "remote-exec" {
 		inline = [
 			"${var.update_packages[var.package_manager]}",
 			"${var.install_packages[var.package_manager]} ${join(" ", var.packages)}"
 		]
 	}
+	
 	provisioner "remote-exec" {
-		scripts = "${var.scripts}"
+		script = "${var.mongodb-script}"
 	}
 }

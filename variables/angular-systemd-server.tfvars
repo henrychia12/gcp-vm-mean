@@ -1,10 +1,10 @@
 project = "${var.project}"
-name = "${var.name}"
+name = "${var.name-angular}"
 packages = [
         "git"
            ]
 scripts = [
-        "scripts/angular-project-install.sh"
+        "../scripts/angular-project-install.sh"
           ]
 
 allowed_ports = [
