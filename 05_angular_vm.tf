@@ -1,8 +1,8 @@
-resource "google_compute_instance" "express" {
-        name = "${var.name}-express"
+resource "google_compute_instance" "angular" {
+        name = "${var.name}-angular"
         machine_type = "${var.machine_type}"
         zone = "${var.zone}"
-        tags = ["${var.name}-express"]
+        tags = ["${var.name}-angular"]
         boot_disk {
                 initialize_params {
                         image = "${var.image}"
@@ -20,17 +20,19 @@ resource "google_compute_instance" "express" {
         connection {
                 type = "ssh"
                 user = "${var.ssh_user}"
-    host = "${google_compute_instance.default.network_interface.0.access_config.0.nat_ip}"
+        host = "${google_compute_instance.angular.network_interface.0.access_config.0.nat_ip}"
                 private_key = "${file("${var.private_key}")}"
         }
+
+	provisioner "remote-exec" {
+		inline = [
+			"${var.update_packages[var.package_manager]}",
+			"${var.install_packages[var.package_manager]} ${join(" ", var.packages)}"
+		]
+	}
+        
         provisioner "remote-exec" {
-                inline = [
-                        "${var.update_packages[var.package_manager]}",
-                        "${var.install_packages[var.package_manager]} ${join(" ", var.packages)}"
-                ]
-        }
-        provisioner "remote-exec" {
-                scripts = "${var.scripts}"
+                script = "${var.angular-script}"
         }
 }
 
