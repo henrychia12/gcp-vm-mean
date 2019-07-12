@@ -17,7 +17,7 @@ sudo usermod --shell /bin/bash meanadm
 sudo su - meanadm -c "git clone -b Developer https://github.com/Nboaram/TeamAPoolProjectUI.git && git clone https://github.com/henrychia12/mean-script.git"
 
 # install npm dependencies as meanadm in front end repo
-sudo su - meanadm -c "cd TeamAPoolProjectUI && npm install"
+sudo su - meanadm -c "cd TeamAPoolProjectUI && NG_CLI_ANALYTICS=ci npm install"
 
 # installing angular globally
 sudo NG_CLI_ANALYTICS=ci npm install -g @angular/cli
