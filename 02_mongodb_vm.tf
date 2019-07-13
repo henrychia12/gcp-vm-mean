@@ -1,5 +1,15 @@
+resource "google_dns_record_set" "mongodb" {
+	name = "mongodb.${google_dns_managed_zone.prod.dns_name}"
+	type = "A"
+	ttl  = 300
+
+	managed_zone = "${google_dns_managed_zone.prod.name}"
+
+	rrdatas = ["${google_compute_instance.mongodb.network_interface.0.access_config.0.nat_ip}"]
+}
+
 resource "google_compute_instance" "mongodb" {
-	name = "${var.name}-mongodb"
+	name = "${var.name}-${var.database}"
 	machine_type = "${var.machine_type}"
 	zone = "${var.zone}"
 	tags = ["${var.name}-mongodb"]
@@ -36,3 +46,9 @@ resource "google_compute_instance" "mongodb" {
 		script = "${var.mongodb-script}"
 	}
 }
+
+resource "google_dns_managed_zone" "prod" {
+        name = "mongodb-zone"
+        dns_name = "prod.database."
+}
+

@@ -1,5 +1,5 @@
 resource "google_compute_instance" "express" {
-        name = "${var.name}-express"
+        name = "${var.name}-${var.api}"
         machine_type = "${var.machine_type}"
         zone = "${var.zone}"
         tags = ["${var.name}-express"]
