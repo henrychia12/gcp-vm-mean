@@ -1,5 +1,5 @@
 resource "google_compute_instance" "angular" {
-        name = "${var.name}-angular"
+        name = "${var.name}-${var.frontend}"
         machine_type = "${var.machine_type}"
         zone = "${var.zone}"
         tags = ["${var.name}-angular"]
@@ -26,6 +26,7 @@ resource "google_compute_instance" "angular" {
 
 	provisioner "remote-exec" {
 		inline = [
+			"${var.update_packages[var.package_manager]}",
 			"${var.update_packages[var.package_manager]}",
 			"${var.install_packages[var.package_manager]} ${join(" ", var.packages)}"
 		]

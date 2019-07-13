@@ -14,7 +14,7 @@ sudo useradd --create-home meanadm
 sudo usermod --shell /bin/bash meanadm
 
 # briefly carries a task on user - meanadm to git clone back end repo
-sudo su - meanadm -c "git clone -b Developer https://github.com/Nboaram/TeamAPoolProjectBackend.git && git clone https://github.com/henrychia12/mean-script.git"
+sudo su - meanadm -c "git clone -b Terraform https://github.com/Nboaram/TeamAPoolProjectBackend.git && git clone https://github.com/henrychia12/mean-pool-queue-script.git"
 
 # install npm dependencies as meanadm in back end repo
 sudo su - meanadm -c "cd TeamAPoolProjectBackend && npm install"
@@ -23,7 +23,7 @@ sudo su - meanadm -c "cd TeamAPoolProjectBackend && npm install"
 sudo rm -f /etc/systemd/system/express.service
 
 # copy express service file to systemd
-sudo cp /home/meanadm/mean-script/express.service /etc/systemd/system
+sudo cp /home/meanadm/mean-pool-queue-script/express.service /etc/systemd/system
 
 # new service files added. systemd reload required to start express
 sudo systemctl daemon-reload

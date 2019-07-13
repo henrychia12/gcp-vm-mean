@@ -6,6 +6,18 @@ variable "name" {
 	default = "default"
 }
 
+variable "frontend" {
+	default = "angular"
+}
+
+variable "api" {
+	default = "express"
+}
+
+variable "database" {
+	default = "mongodb"
+}
+
 variable "machine_type" {
 	default = "f1-micro"
 }
