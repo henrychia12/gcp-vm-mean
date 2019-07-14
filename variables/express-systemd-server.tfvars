@@ -1,5 +1,5 @@
 project = "${var.project}"
-name = "${var.name-express}"
+name = "${var.name}-${var.api}"
 packages = [
         "git"
            ]

@@ -1,5 +1,5 @@
 project = "${var.project}"
-name = "${var.name-mongodb}"
+name = "${var.name}-${var.database}"
 packages = [
         "git"
            ]

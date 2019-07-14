@@ -14,7 +14,7 @@ sudo useradd --create-home meanadm
 sudo usermod --shell /bin/bash meanadm
 
 # briefly carries a task on user - meanadm to git clone back end repo
-sudo su - meanadm -c "git clone -b Terraform https://github.com/Nboaram/TeamAPoolProjectBackend.git && git clone https://github.com/henrychia12/mean-pool-queue-script.git"
+sudo su - meanadm -c "git clone -b terraform-dns https://github.com/Nboaram/TeamAPoolProjectBackend.git && git clone https://github.com/henrychia12/mean-pool-queue-script.git"
 
 # install npm dependencies as meanadm in back end repo
 sudo su - meanadm -c "cd TeamAPoolProjectBackend && npm install"

@@ -1,5 +1,5 @@
 project = "${var.project}"
-name = "${var.name-angular}"
+name = "${var.name}-${var.frontend}"
 packages = [
         "git"
            ]

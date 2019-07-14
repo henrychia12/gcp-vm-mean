@@ -18,6 +18,10 @@ variable "database" {
 	default = "mongodb"
 }
 
+variable "dns-name" {
+	default = "mongo.database.com."
+}
+
 variable "machine_type" {
 	default = "f1-micro"
 }

@@ -1,11 +1,11 @@
 resource "google_dns_record_set" "mongodb" {
-	name = "mongodb.${google_dns_managed_zone.prod.dns_name}"
-	type = "A"
-	ttl  = 300
+        name = "mongodb.${google_dns_managed_zone.prod.dns_name}"
+        type = "A"
+        ttl  = 300
 
-	managed_zone = "${google_dns_managed_zone.prod.name}"
+        managed_zone = "${google_dns_managed_zone.prod.name}"
 
-	rrdatas = ["${google_compute_instance.mongodb.network_interface.0.access_config.0.nat_ip}"]
+        rrdatas = ["${google_compute_instance.mongodb.network_interface.0.access_config.0.nat_ip}"]
 }
 
 resource "google_compute_instance" "mongodb" {
@@ -49,6 +49,6 @@ resource "google_compute_instance" "mongodb" {
 
 resource "google_dns_managed_zone" "prod" {
         name = "mongodb-zone"
-        dns_name = "prod.database."
+        dns_name = "${var.dns-name}"
 }
 
